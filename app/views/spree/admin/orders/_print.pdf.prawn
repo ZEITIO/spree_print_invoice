@@ -19,6 +19,12 @@ move_down 4
 
 if Spree::PrintInvoice::Config.use_sequential_number? && @order.invoice_number.present? && !@hide_prices
 
+  invoice_number = if @order.respond_to?(:formatted_invoice_number)
+    @order.formatted_invoice_number
+  else
+    @order.invoice_number
+  end
+
   font @font_face,  :size => 9,  :style => :bold
   text "#{Spree.t(:invoice_number)} #{@order.invoice_number}", :align => :right
 
