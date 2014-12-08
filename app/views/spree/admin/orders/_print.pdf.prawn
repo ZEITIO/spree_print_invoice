@@ -26,7 +26,7 @@ if Spree::PrintInvoice::Config.use_sequential_number? && @order.invoice_number.p
   end
 
   font @font_face,  :size => 9,  :style => :bold
-  text "#{Spree.t(:invoice_number)} #{@order.invoice_number}", :align => :right
+  text "#{Spree.t(:invoice_number)} #{invoice_number}", :align => :right
 
   move_down 2
   font @font_face, :size => 9
